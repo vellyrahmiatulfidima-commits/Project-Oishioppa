@@ -1,0 +1,140 @@
+/* ==========================================================================
+   STYLING KHUSUS HALAMAN PESANAN SAYA
+   ========================================================================== */
+
+
+
+
+.order-page-wrapper {
+    width: 100%;
+    /* Memenuhi 100% lebar viewport */
+    margin: 0 auto;
+    margin-top: 25px;    /* Memberi jarak dari atas/navbar */
+    /* Meratakan posisi ke tengah */
+    padding: 150px 20px 60px;
+    min-height: 75vh;
+    background: linear-gradient(rgba(255, 250, 205, 0.748), rgba(255, 250, 205, 0.2)),
+        url('../assets/bg-reservasi.png') center 30%/cover;
+    box-sizing: border-box;
+    /* Mencegah padding membuat layar melebar/overflow */
+}
+
+.table-order-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #e2e8f0;
+
+    /* Tambahkan 3 baris ini agar kotak putihnya ikutan mengecil & ke tengah */
+    max-width: 850px;
+    /* Sesuaikan lebar kartu putih yang diinginkan */
+    width: 100%;
+    margin: 25px auto 0;
+    /* 'auto' di kiri-kanan membuat posisi ke tengah */
+}
+
+.custom-order-table {
+    width: 100%;
+    /* Penuhi 100% isi dari .table-order-container */
+    border-collapse: collapse;
+    text-align: left;
+    margin: 0;
+    /* Hapus margin agar pas di dalam kotak putih */
+}
+
+.custom-order-table th {
+    background-color: #2c1810;
+    color: #f7e7ce;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.custom-order-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+    font-size: 0.95rem;
+}
+
+.custom-order-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badge Status Pesanan */
+.badge-status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.badge-pending {
+    background-color: #fff8e6;
+    color: #d97706;
+    border: 1px solid #fcd34d;
+}
+
+.badge-selesai {
+    background-color: #ecfdf5;
+    color: #059669;
+    border: 1px solid #6ee7b7;
+}
+
+/* Penyesuaian Mode Gelap */
+body.dark-mode .table-order-container {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-mode .custom-order-table td {
+    color: #e0e0e0;
+    border-bottom-color: #2a2a2a;
+}
+
+/* ==========================================================================
+   RESPONSIVE - HALAMAN PESANAN SAYA DI HP
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .order-page-wrapper {
+        padding: 110px 12px 40px;
+    }
+
+    .custom-order-table {
+        min-width: 600px;
+        /* Memastikan tabel tetap terbaca & bisa discroll ke samping */
+    }
+
+    .custom-order-table th,
+    .custom-order-table td {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .order-page-wrapper {
+        padding: 100px 10px 30px;
+    }
+
+    .order-title {
+        font-size: 1.4rem;
+    }
+
+    .order-subtitle {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Sesuaikan nama kelas selector judul/header di pesanan.css Anda */
+    h3, .header-title {
+        margin-bottom: 25px; 
+    }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OishiOppa - Daftar Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Great+Vibes&family=Cinzel:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Black+Ops+One&family=Galindo&family=Italianno&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bedtime,light_mode,arrow_back" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-user.css">
+    <link rel="stylesheet" href="../css/tambahan.css">
+</head>
+
+<body class="bg-pattern">
+    <header class="navbar">
+        <!-- Baris atas khusus mobile/desktop agar logo & hamburger sejajar -->
+        <div class="nav-header-mobile">
+            <div class="logo-oshi-style">
+                <div class="header-oishioppa">
+                    <span class="icon-chopstick">🥢</span>OishiOppa
+                </div>
+                <div class="brand-sub">JAPANESE & KOREAN RESTO</div>
+                <div class="brand-est">EST. 2026</div>
+            </div>
+
+            <!-- Tombol Hamburger dipindah ke sini agar sejajar dengan logo -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu Navigasi">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <nav>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="../index.html" class="nav-back-home"><span
+                            class="material-symbols-outlined">arrow_back</span> Beranda</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="pesanan-user.html">Order</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="kontak.html">Reservation</a></li>
+
+                <li id="user-status-container" class="user-status-box hidden">
+                    <span id="user-display-name" class="user-name-text"></span>
+                    <button id="btn-logout" type="button" class="btn-logout-style">Keluar</button>
+                </li>
+
+                <li><button id="dark-toggle" class="btn-theme"><span class="material-symbols-outlined" id="theme-icon">
+                            bedtime
+                        </span></button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="menu-container">
+        <div class="hero-header">
+            <span class="badge-subtitle">✨ Japanese & Korean Culinary Experience</span>
+            <h2>Daftar Menu Spesial</h2>
+            <p class="subtitle">お気に入りの料理をお選びください <br><span class="romaji">(O-ki ni iri no ryōri o o-erabi
+                    kudasai)</span></p>
+        </div>
+
+        <section id="preview-section" class="regional-section">
+            <h3 class="section-title">Pilih Berdasarkan Asal Kuliner</h3>
+            <div id="regional-preview-container" class="regional-grid"></div>
+
+            <div class="btn-full-menu-wrapper">
+                <a href="menu.html?view=all" class="nobu-btn btn-full-menu">
+                    📖 TEKAN DISINI UNTUK LIHAT SEMUA MENU LENGKAP ➔
+                </a>
+            </div>
+        </section>
+
+        <section id="full-menu-section" class="full-menu-hidden">
+            <div class="back-link-box">
+                <a href="menu.html" class="back-link">← Kembali ke Preview Menu</a>
+            </div>
+
+            <div class="filter-controls">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="Cari menu favoritmu...">
+                </div>
+
+                <div class="region-buttons category-buttons">
+                    <button id="btn-asal-semua" class="btn-filter active" data-asal="semua">
+                        <span class="btn-icon">🌏</span> Semua Daerah
+                    </button>
+                    <button id="btn-asal-jepang" class="btn-filter" data-asal="jepang">
+                        <span class="btn-icon">🇯🇵</span> Jepang
+                    </button>
+                    <button id="btn-asal-korea" class="btn-filter" data-asal="korea">
+                        <span class="btn-icon">🇰🇷</span> Korea
+                    </button>
+                </div>
+
+                <div class="category-buttons">
+                    <button class="btn-filter active" data-kategori="semua">
+                        <span class="btn-icon">✨</span> Semua Jenis
+                    </button>
+                    <button class="btn-filter" data-kategori="makanan">
+                        <span class="btn-icon">🍱</span> Makanan
+                    </button>
+                    <button class="btn-filter" data-kategori="minuman">
+                        <span class="btn-icon">🍵</span> Minuman
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menu-grid"></div>
+        </section>
+    </main>
+
+    <section class="nobu-experience-section" id="resto-ambiance-section">
+        <div class="nobu-row scroll-reveal">
+            <div class="nobu-image-col slide-left">
+                <img src="../assets/image-resto.png" alt="Ambiance Dining">
+            </div>
+            <div class="nobu-text-col slide-right">
+                <span class="nobu-subtitle">ABOUT OUR RESTAURANT</span>
+                <h2>AN UNFORGETTABLE DINING EXPERIENCE</h2>
+                <p>Nikmati perpaduan rasa autentik Jepang dan Korea dalam suasana interior kayu kontemporer yang elegan
+                    dan hangat.</p>
+                <a href="about.html" class="nobu-btn">EXPLORE MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- modal buat pesan menu, munculnya pas klik tombol "Pesan Sekarang" -->
+    <!-- ada 2 tahap di dalem sini: dulu isi form, abis submit baru pindah ke struk -->
+    <!-- (script.js yang atur pindah-pindah tahapnya, css/style.css yang atur tampilannya) -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="receipt-card">
+            <!-- TAHAP 1: FORM PEMESANAN, ini yang muncul duluan -->
+            <div id="order-form-view">
+                <div class="receipt-card-header">
+                    <span class="close-btn" id="close-detail-btn-form">&times;</span>
+                    <h2>Form Pemesanan</h2>
+                    <!-- teks ini nanti diganti otomatis lewat JS jadi "nama menu - harga" -->
+                    <p id="order-form-menu-name">Lengkapi data pesananmu</p>
+                </div>
+
+                <form id="order-form" class="order-form-box" novalidate>
+                    <!-- kolom nama, otomatis keisi kalo user udah login -->
+                    <div class="form-group">
+                        <label for="order-nama">Nama Pemesan</label>
+                        <div class="input-box">
+                            <span class="icon-kiri">👤</span>
+                            <input type="text" id="order-nama" placeholder="Masukkan nama Anda" autocomplete="off">
+                        </div>
+                        <small class="field-error" id="error-nama"></small>
+                    </div>
+
+                    <!-- jumlah pesanan, pake tombol +/- biar gampang tinggal pencet -->
+                    <div class="form-group">
+                        <label for="order-jumlah">Jumlah Pesanan</label>
+                        <div class="qty-stepper">
+                            <button type="button" class="qty-btn" id="qty-minus" aria-label="Kurangi jumlah">−</button>
+                            <input type="number" id="order-jumlah" min="1" step="1" value="1" inputmode="numeric">
+                            <button type="button" class="qty-btn" id="qty-plus" aria-label="Tambah jumlah">+</button>
+                        </div>
+                        <small class="field-error" id="error-jumlah"></small>
+                    </div>
+
+                    <!-- pilihan metode bayar, defaultnya cash -->
+                    <div class="form-group">
+                        <label>Metode Pembayaran</label>
+                        <div class="payment-options" id="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="metode" value="CASH" checked>
+                                <span class="payment-option-label">💵 Cash<em>Tunai, tanpa biaya tambahan</em></span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="metode" value="TRANSFER">
+                                <span class="payment-option-label">🏦 Transfer Bank<em>+Rp 2.500 biaya admin</em></span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="metode" value="E-WALLET">
+                                <span class="payment-option-label">📱 E-Wallet<em>+Rp 1.000 biaya layanan</em></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ini kotak ringkasan (subtotal, biaya, diskon, total) yang auto keisi lewat JS -->
+                    <div class="order-form-summary" id="order-form-summary"></div>
+                    <small class="field-error" id="error-form-general"></small>
+
+                    <button type="submit" class="nobu-btn btn-back-menu">Konfirmasi Pesanan</button>
+                </form>
+            </div>
+
+            <!-- TAHAP 2: STRUK, baru keliatan setelah form berhasil disubmit -->
+            <div id="order-receipt-view" class="hidden">
+                <div class="receipt-card-header">
+                    <span class="close-btn" id="close-detail-btn-receipt">&times;</span>
+                    <h2>Rincian Pesanan Anda</h2>
+                    <p>Terima kasih telah memesan di OishiOppa'lyy!</p>
+                </div>
+
+                <!-- pesan "terima kasih ..." diisi otomatis dari JS -->
+                <div class="auth-message success" id="order-success-banner"></div>
+
+                <!-- detail struk (nomor pesanan, item, total, dll) dibikin di sini pake JS -->
+                <div class="receipt-box" id="modal-receipt-box"></div>
+
+                <div class="receipt-card-footer">
+                    <button type="button" class="nobu-btn btn-back-menu" id="btn-close-receipt">← Pesan Lagi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-angke-style">
+        <div class="footer-container">
+            <h2 class="footer-main-title">LOKASI & RESERVASI</h2>
+
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>OishiOppa Tokyo</h3>
+                    <p>Shibuya City, Dogenzaka 2-Chome 10-1, Tokyo 150-0043, Japan</p>
+                    <p class="footer-phone">Telp: +81 3-1234-5678</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>OishiOppa Seoul</h3>
+                    <p>Myeongdong 8-gil, Jung-gu, Seoul, South Korea</p>
+                    <p class="footer-phone">Telp: +82 2-9876-5432</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Jam Operasional</h3>
+                    <p>Setiap Hari</p>
+                    <p class="footer-phone">12.00 - 00.00 JST / KST</p>
+                </div>
+
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-box">
+                        <span class="logo-icon">🍣</span>
+                        <span class="logo-text">OISHI OPPA</span>
+                        <span class="logo-subtext">JAPANESE & KOREAN RESTO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 OishiOppa'lyy Resto. All Rights Reserved.</p>
+                <div class="social-iconss">
+                    <a href="https://www.tiktok.com/@vvelyyf" target="_blank"><img src="../assets/tiktok.png"></a>
+                    <a href="https://www.youtube.com/@vellyrahmiatulfidima3738" target="_blank"><img
+                            src="../assets/youtube.png"></a>
+                    <a href="https://www.instagram.com/mnpeliiii/" target="_blank"><img
+                            src="../assets/instagram.png"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/get-menu.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/login-user.js"></script>
+
+</body>
+
+</html>

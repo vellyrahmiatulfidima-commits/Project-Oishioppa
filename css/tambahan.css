@@ -1,0 +1,57 @@
+/* ==========================================================================
+   css/tambahan.css
+   Styling tambahan untuk tombol "Kembali ke Beranda" dan perbaikan tombol
+   close (x) pada halaman login admin. Dipisah sebagai file CSS eksternal
+   sesuai ketentuan proyek (CSS tidak boleh inline / di dalam <style> HTML).
+   ========================================================================== */
+
+/* Tombol "Kembali ke Beranda" pada halaman login-user.html (halaman berdiri sendiri) */
+.back-to-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.back-to-home-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.back-to-home-link .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+/* Tombol "Kembali ke Beranda" di navbar (halaman menu, order, about, reservasi) */
+.nav-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-back-home:hover {
+    opacity: 1;
+    transform: translateX(-2px);
+}
+
+.nav-back-home .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+/* Perbaikan tombol close (x) pada login.html agar tidak muncul garis bawah bawaan tag <a> */
+.close-btn {
+    text-decoration: none;
+}

@@ -1,0 +1,324 @@
+/* ==========================================================================
+   10. KHUSUS HALAMAN LOGIN (ISOLATED/TIDAK MERUSAK HALAMAN LAIN)
+   ========================================================================== */
+
+/* Latar belakang khusus halaman login saja */
+body.login-page-body {
+    background-color: #1e120c ;
+    background-image: linear-gradient(rgba(30, 18, 12, 0.85), rgba(30, 18, 12, 0.85)), url('../image-menu/bgdetail.jpg') ;
+    background-size: cover ;
+    background-position: center ;
+    background-attachment: fixed ;
+    min-height: 100vh ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    padding: 20px ;
+    font-family: 'Poppins', Arial, sans-serif ;
+}
+
+/* Isolasi Kotak Login */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-top: 5px solid #cb4e18;
+    position: relative;
+}
+
+/* Header Brand Login */
+.brand-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.brand-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #cb4e18;
+    margin-bottom: 5px;
+}
+
+.brand-header h2 {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 5px;
+}
+
+.brand-header p {
+    font-size: 13px;
+    color: #666666;
+    margin-top: 3px;
+}
+
+/* Utility: menyembunyikan elemen tanpa inline style (dipakai lewat classList di JS) */
+.hidden {
+    display: none;
+}
+
+/* Pesan Error / Info Login & Registrasi */
+.auth-message {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.auth-message.error {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5c6c2;
+}
+
+.auth-message.success {
+    background-color: #eafaf1;
+    color: #1e8449;
+    border: 1px solid #b7e6c9;
+}
+
+/* Input & Form Khusus Login */
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box .icon-kiri {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888888;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 12px 12px 38px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: #fafafa;
+}
+
+.input-box input:focus {
+    border-color: #cb4e18;
+    background-color: #ffffff;
+}
+
+/* Opsi Tambahan */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+.form-options a {
+    color: #cb4e18;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Tombol Submit Khusus Login */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #cb4e18;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #3b1313;
+}
+
+/* Pembatas & Sosmed Login */
+.pembatas {
+    text-align: center;
+    margin: 20px 0;
+    border-bottom: 1px solid #dddddd;
+    line-height: 0.1em;
+}
+
+.pembatas span {
+    background: #ffffff;
+    padding: 0 10px;
+    color: #888888;
+    font-size: 12px;
+}
+
+.sosmed-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-sosmed {
+    flex: 1;
+    padding: 9px;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-sosmed:hover {
+    background-color: #f5f5f5;
+}
+
+.login-footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666666;
+}
+
+.login-footer-text a {
+    color: #cb4e18;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   11. STYLING MODAL POPUP LOGIN
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    /* box-sizing wajib supaya padding tidak menambah lebar/tinggi di luar layar */
+    box-sizing: border-box;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay .login-card {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-overlay .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-overlay .close-btn:hover {
+    color: #cb4e18;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Status User & Tombol Keluar di Navbar */
+.user-status-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#user-display-name {
+    color: #ffd700;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-logout-style {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.btn-logout-style:hover {
+    background-color: #c0392b;
+}
+/* ==========================================================================
+   RESPONSIVE - LOGIN CARD & MODAL DI HP
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+    .login-card {
+        padding: 26px 20px;
+        border-radius: 12px;
+    }
+
+    .brand-logo {
+        font-size: 22px;
+    }
+
+    .brand-header h2 {
+        font-size: 18px;
+    }
+
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .sosmed-group {
+        flex-direction: column;
+    }
+}

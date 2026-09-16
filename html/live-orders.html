@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OishiOppa - Live Status Pesanan</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Black+Ops+One&family=Galindo&family=Italianno&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bedtime,light_mode" />
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <!-- Link CSS Eksternal Utama & CSS Khusus Admin -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+
+<body class="admin-container">
+    <div class="wrapper">
+
+        <header class="navbar">
+            <div class="nav-header-mobile">
+                <div class="logo-oshi-style">
+                    <div class="header-oishioppa">
+                        <span class="icon-chopstick">🥢</span>OishiOppa
+                    </div>
+                    <div class="brand-sub">JAPANESE & KOREAN RESTO</div>
+                    <div class="brand-est">EST. 2026</div>
+                </div>
+                <!-- Tombol Hamburger -->
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu Utama">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li><a href="live-orders.html" class="active">Live Pesanan</a></li>
+                    <li><button id="dark-toggle" class="btn-theme"><span class="material-symbols-outlined"
+                                id="theme-icon">bedtime</span></button></li>
+                    <li><button type="button" id="btn-logout" class="btn-delete">Keluar (Logout)</button></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="admin-header-order">
+                <h3>Monitoring Pesanan Real-Time <br><i>Pantau pesanan pelanggan yang masuk dan perbarui status dapur.</i></br></h3>
+            </div>
+
+            <!-- HALAMAN KHUSUS MONITORING PESANAN -->
+            <section class="admin-section">
+                <div class="section-header-row">
+                    <h3>Live Status Pesanan (Kitchen & Order Monitoring)</h3>
+                    <button class="reset-button" id="btn-reset-orders" type="button">
+                        🗑️ Reset / Hapus Semua Pesanan
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>No. Order</th>
+                                <th>Pemesan</th>
+                                <th>Item Pesanan</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Aksi Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="live-order-list">
+                            <!-- Diisi otomatis via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="admin-footer">
+        <div class="admin-footer-container">
+            <p>&copy; 2026 OishiOppa. All Rights Reserved. 🔑 <em>Halaman Khusus Dapur & Kasir</em></p>
+        </div>
+    </footer>
+
+    <!-- Script JS Eksternal -->
+    <script src="../js/live-orders.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OishiOppa - Login Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-user.css">
+    <link rel="stylesheet" href="../css/tambahan.css">
+</head>
+
+<body class="login-page-body">
+    <header class="navbar">
+        <div class="logo-oshi-style">
+            <div class="header-oishioppa"><span class="icon-chopstick">🥢</span>OishiOppa</div>
+            <div class="brand-sub">JAPANESE & KOREAN RESTO</div>
+            <div class="brand-est">EST. 2026</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li><button id="dark-toggle" class="btn-theme"><span class="material-symbols-outlined" id="theme-icon">
+                            bedtime
+                        </span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="../assets/video-resto.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Selamat Datang di OishiOppa 🥢</h1>
+            <p class="pe">Nikmati pengalaman kuliner dengan cita rasa otentik dan bahan-bahan segar pilihan terbaik.</p>
+        </div>
+    </section>
+
+    <div class="modal-overlay active">
+        <div class="login-card">
+            <a href="../index.html" class="close-btn" id="close-login-btn">&times;</a>
+
+            <div class="brand-header">
+                <div class="brand-logo">
+                    <span class="material-symbols-outlined">key</span> OishiOppa
+                </div>
+                <h2>Akses Admin</h2>
+                <p>Silakan masuk untuk mengelola dashboard.</p>
+            </div>
+
+            <form id="form-login-admin">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">person</span>
+                        <input type="text" id="admin-username" placeholder="Masukkan username" required
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">lock</span>
+                        <input type="password" id="admin-password" placeholder="Masukkan password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Masuk Admin 🔑
+                </button>
+                <div class="error-message" id="error-message"></div>
+            </form>
+        </div>
+    </div>
+    <!-- Script Eksternal: proses autentikasi admin & toggle dark mode -->
+    <script src="../js/login.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>

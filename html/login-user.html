@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OishiOppa - Masuk & Daftar Pelanggan</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <link rel="stylesheet" href="../css/style-user.css">
+    <link rel="stylesheet" href="../css/tambahan.css">
+</head>
+
+<body class="login-page-body">
+
+    <main class="login-container">
+        <div class="login-card">
+
+            <a href="../index.html" class="back-to-home-link">
+                <span class="material-symbols-outlined">arrow_back</span> Kembali ke Beranda
+            </a>
+
+            <div class="brand-header">
+                <div class="brand-logo">
+                    <span class="material-symbols-outlined icon-kiri">restaurant</span> OishiOppa
+                </div>
+                <!-- Judul akan berubah dinamis lewat JS -->
+                <h2 id="auth-title">Akun Pelanggan</h2>
+                <p id="auth-subtitle">Silakan masuk untuk melanjutkan pemesanan.</p>
+            </div>
+
+            <!-- Kontainer Pesan Error / Info (diisi dinamis lewat JS: createElement & appendChild) -->
+            <div id="auth-message-container"></div>
+
+            <!-- FORM UTAMA (LOGIN / REGISTER) -->
+            <form id="form-user-auth">
+
+                <!-- Input Nama (Hanya tampil saat Registrasi) -->
+                <div class="form-group hidden" id="group-nama">
+                    <label for="user-nama">Nama Lengkap</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">person</span>
+                        <input type="text" id="user-nama" placeholder="Masukkan nama lengkap">
+                    </div>
+                </div>
+
+                <!-- Input Username / Email -->
+                <div class="form-group">
+                    <label for="user-username">Username / Email</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">mail</span>
+                        <input type="text" id="user-username" placeholder="Masukkan username atau email" required>
+                    </div>
+                </div>
+
+                <!-- Input Password -->
+                <div class="form-group">
+                    <label for="user-password">Password</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">lock</span>
+                        <input type="password" id="user-password" placeholder="Masukkan password" required>
+                    </div>
+                </div>
+
+                <!-- Input Konfirmasi Password (Hanya tampil saat Registrasi) -->
+                <div class="form-group hidden" id="group-confirm-password">
+                    <label for="user-confirm-password">Konfirmasi Password</label>
+                    <div class="input-box">
+                        <span class="material-symbols-outlined icon-kiri">lock_reset</span>
+                        <input type="password" id="user-confirm-password" placeholder="Ulangi password">
+                    </div>
+                </div>
+
+                <div class="form-options" id="login-options">
+                    <label><input type="checkbox" id="remember"> Ingat Saya</label>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="submit" id="btn-submit-auth" class="btn-submit">
+                    Masuk Sekarang 🥢
+                </button>
+            </form>
+
+            <div class="pembatas" id="divider-sosmed">
+                <span>atau masuk dengan</span>
+            </div>
+
+            <div class="sosmed-group" id="sosmed-container">
+                <button type="button" class="btn-sosmed">
+                    <span class="material-symbols-outlined icon-google">g_translate</span> Google
+                </button>
+                <button type="button" class="btn-sosmed">
+                    <span class="material-symbols-outlined icon-whatsapp">chat</span> WhatsApp
+                </button>
+            </div>
+
+            <!-- Teks Pindah Mode Login <-> Register -->
+            <p class="login-footer-text">
+                <span id="switcher-text">Belum punya akun?</span>
+                <a href="#" id="toggle-auth-mode">Daftar Sekarang</a>
+            </p>
+
+        </div>
+    </main>
+
+    <script src="../js/login-user.js"></script>
+</body>
+
+</html>

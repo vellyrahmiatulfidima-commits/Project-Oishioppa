@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OishiOppa - Reservasi Meja</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-user.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Black+Ops+One&family=Galindo&family=Italianno&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bedtime,light_mode,arrow_back" />
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="stylesheet" href="../css/tambahan.css">
+</head>
+
+<body>
+    <!-- Halaman Reservasi Meja: pelanggan mengisi form untuk booking meja restoran -->
+    <header class="navbar">
+        <div class="nav-header-mobile">
+            <div class="logo-oshi-style">
+                <div class="header-oishioppa">
+                    <span class="icon-chopstick">🥢</span>OishiOppa
+                </div>
+                <div class="brand-sub">JAPANESE & KOREAN RESTO</div>
+                <div class="brand-est">EST. 2026</div>
+            </div>
+
+            <!-- Tombol Hamburger dipindah ke sini agar sejajar dengan logo -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu Navigasi">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="../index.html" class="nav-back-home"><span class="material-symbols-outlined">arrow_back</span> Beranda</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="pesanan-user.html">Order</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="kontak.html" class="active">Reservation</a></li>
+
+                <li id="user-status-container" class="user-status-box hidden">
+                    <span id="user-display-name" class="user-name-text"></span>
+                    <button id="btn-logout" type="button" class="btn-logout-style">Keluar</button>
+                </li>
+
+                <li><button id="dark-toggle" class="btn-theme"><span class="material-symbols-outlined" id="theme-icon">
+                            bedtime
+                        </span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h2>Reservasi Meja</h2>
+                <p class="pe">Nikmati pengalaman santap istimewa makanan khas Jepang & Korea bersama kami.</p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <img src="../assets/location.png" alt="lokasi">
+                        <div>
+                            <h4>Lokasi Resto</h4>
+                            <p><strong>Tokyo:</strong> Shibuya City, Dogenzaka 2-Chome 10-1<br>
+                                <strong>Seoul:</strong> Myeongdong 8-gil, Jung-gu
+                            </p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <img src="../assets/phone.png" alt="phone">
+                        <div>
+                            <h4>Bantuan & Konfirmasi</h4>
+                            <p>+81 3-1234-5678 (Tokyo)<br>+82 2-9876-5432 (Seoul)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <img src="../assets/email.png" alt="alamat email">
+                        <div>
+                            <h4>Email Reservasi</h4>
+                            <p>vellyrahmiatulfidima@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h4>Ikuti Media Sosial Kami:</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/mnpeliiii/" target="_blank"><img src="../assets/instagram.png"
+                                alt="Instagram"></a>
+                        <a href="https://www.youtube.com/@vellyrahmiatulfidima3738" target="_blank"><img
+                                src="../assets/youtube.png" alt="YouTube"></a>
+                        <a href="https://www.tiktok.com/@vvelyyf" target="_blank"><img src="../assets/tiktok.png"
+                                alt="TikTok"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <h3>Formulir Reservasi</h3>
+                <!-- Form ini ditangani oleh js/reservasi.js: data disimpan ke localStorage 'table_reservations' -->
+                <form id="reservation-form">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap Pemesan</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon / WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="Contoh: +62 8123456789" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Konfirmasi</label>
+                        <input type="email" id="email" placeholder="contoh@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outlet">Pilih Outlet Restoran</label>
+                        <select id="outlet" required>
+                            <option value="" disabled selected>-- Pilih Cabang --</option>
+                            <option value="tokyo">OishiOppa Tokyo (Shibuya)</option>
+                            <option value="seoul">OishiOppa Seoul (Myeongdong)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row-flex">
+                        <div class="form-group flex-1">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" id="tanggal" required>
+                        </div>
+
+                        <div class="form-group flex-1">
+                            <label for="waktu">Waktu Jam</label>
+                            <input type="time" id="waktu" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-flex">
+                        <div class="form-group flex-1">
+                            <label for="tamu">Jumlah Tamu</label>
+                            <select id="tamu" required>
+                                <option value="1">1 Orang</option>
+                                <option value="2" selected>2 Orang</option>
+                                <option value="3-4">3 - 4 Orang</option>
+                                <option value="5-8">5 - 8 Orang</option>
+                                <option value="8+">> 8 Orang (Grup/Acara)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group flex-1">
+                            <label for="area">Area Tempat Duduk</label>
+                            <select id="area">
+                                <option value="indoor">Indoor (Biasa)</option>
+                                <option value="outdoor">Outdoor / Garden</option>
+                                <option value="tatami">Lesehan Tatami (Jepang)</option>
+                                <option value="vip">VIP / Private Room</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="catatan">Catatan / Permintaan Khusus</label>
+                        <textarea id="pesan" rows="3"
+                            placeholder="Contoh: Acara Ulang Tahun, Kursi Bayi (High Chair), Alergi Makanan, dll..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit btn-require-login">Konfirmasi Reservasi</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-angke-style">
+        <div class="footer-container">
+            <h2 class="footer-main-title">LOKASI & RESERVASI</h2>
+
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>OishiOppa Tokyo</h3>
+                    <p>Shibuya City, Dogenzaka 2-Chome 10-1, Tokyo 150-0043, Japan</p>
+                    <p class="footer-phone">Telp: +81 3-1234-5678</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>OishiOppa Seoul</h3>
+                    <p>Myeongdong 8-gil, Jung-gu, Seoul, South Korea</p>
+                    <p class="footer-phone">Telp: +82 2-9876-5432</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Jam Operasional</h3>
+                    <p>Setiap Hari</p>
+                    <p class="footer-phone">12.00 - 00.00 JST / KST</p>
+                </div>
+
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-box">
+                        <span class="logo-icon">🍣</span>
+                        <span class="logo-text">OISHI OPPA</span>
+                        <span class="logo-subtext">JAPANESE & KOREAN RESTO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 OishiOppa'lyy Resto. All Rights Reserved.</p>
+
+                <div class="social-iconss">
+                    <a href="https://www.tiktok.com/@vvelyyf" target="_blank"><img src="../assets/tiktok.png"></a>
+                    <a href="https://www.youtube.com/@vellyrahmiatulfidima3738" target="_blank"><img
+                            src="../assets/youtube.png"></a>
+                    <a href="https://www.instagram.com/mnpeliiii/" target="_blank"><img src="../assets/instagram.png"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/login-user.js"></script>
+    <script src="../js/reservasi.js"></script>
+</body>
+
+</html>

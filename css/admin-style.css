@@ -1,0 +1,568 @@
+/* ==========================================================================
+   CSS KHUSUS DASHBOARD ADMIN
+   ========================================================================== */
+
+/* 1. Pengaturan Body & Layout Utama */
+body.admin-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(255, 250, 205, 0.2), rgba(255, 250, 205, 0.2)),
+        url('../assets/bg-reservasi.png') center/cover fixed;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode.admin-container {
+    background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)),
+        url('../assets/bg-reservasi.png') center/cover fixed;
+}
+
+/* 2. Pembungkus Konten Utama (Wrapper) */
+.wrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 120px auto 40px auto;
+    padding: 0 20px;
+}
+/* buat tampilan header admin */
+.admin-header h3 {
+    color: #e3dada;
+    background-color: #4a3d3d;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.927);
+}
+/* responsive */
+@media (max-width: 768px) {
+    .admin-header h3 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        padding: 8px;
+        box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.927);
+    }
+}
+
+/* Responsif untuk Handphone / Layar Kecil (max-width: 480px) */
+@media (max-width: 480px) {
+    .admin-header h3 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        padding: 6px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.927);
+    }
+}
+
+/* untuk orderan pelanggan */
+.admin-header-order h3 {
+    color: #000000;
+    background-color: #998a8a;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.927);
+}
+@media (max-width: 768px) {
+    .admin-header-order h3 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        padding: 8px;
+        box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.927);
+    }
+}
+
+/* Responsif untuk Handphone / Layar Kecil (max-width: 480px) */
+@media (max-width: 480px) {
+    .admin-header-order h3 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        padding: 6px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.927);
+    }
+}
+
+/* 3. Grid Card Statistik */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #cb4e18;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card h4 {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card .value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #3b1313;
+}
+
+/* 4. Kartu Seksi Admin & Form */
+.admin-section {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.admin-section h3 {
+    color: #3b1313;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.section-subtitle {
+    margin-top: 35px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.admin-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.95rem;
+    background-color: #fff;
+}
+
+.btn-admin-add {
+    width: auto;
+    padding: 10px 25px;
+    display: inline-block;
+}
+
+/* 5. Tabel Data Admin */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.admin-table th {
+    background-color: #3b1313;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Status Badge & Tombol Aksi */
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+}
+
+.reset-button {
+    background-color: #cb4264;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 6. Footer Khusus Admin */
+.admin-footer {
+    width: 100%;
+    background-color: #1e1a18;
+    color: #a0a0a0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 2px solid #cb4e18;
+    margin-top: auto;
+}
+
+.admin-footer-container p {
+    margin: 0;
+    color: #d1d1d1;
+}
+
+.admin-footer-container em {
+    color: #e8d1a7;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+/* 7. Dark Mode Admin */
+body.dark-mode .admin-header h2,
+body.dark-mode .admin-section h3,
+body.dark-mode .stat-card .value {
+    color: #f3e5ab;
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .admin-section {
+    background-color: #2b2623;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .stat-card h4,
+body.dark-mode .admin-header p {
+    color: #ccc;
+}
+
+body.dark-mode .admin-table th {
+    background-color: #1e1a18;
+    color: #e8d1a7;
+}
+
+body.dark-mode .admin-table td {
+    border-bottom-color: #3d3530;
+    color: #e0e0e0;
+}
+
+body.dark-mode .admin-table tbody tr:hover {
+    background-color: #352f2b;
+}
+
+body.dark-mode .admin-select {
+    background-color: #3b332e;
+    color: #fff;
+    border-color: #55483f;
+}
+
+/* 8. Styling Form Login Admin & User */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border-top: 5px solid #cb4e18;
+}
+
+.login-card h2 {
+    color: #3b1313;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.login-card .form-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.login-card label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #3b1313;
+    margin-bottom: 6px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: #cb4e18;
+}
+
+.login-card .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #cb4e18;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-card .btn-submit:hover {
+    background-color: #a33c10;
+}
+
+body.dark-mode .login-card {
+    background-color: #2b2623;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .login-card h2,
+body.dark-mode .login-card label {
+    color: #f3e5ab;
+}
+
+body.dark-mode .login-card p {
+    color: #ccc;
+}
+
+body.dark-mode .login-card input {
+    background-color: #3b332e;
+    color: #fff;
+    border-color: #55483f;
+}
+
+/* ==========================================================================
+   PAGINATION CONTROL UNTUK DAFTAR MENU ADMIN
+   ========================================================================== */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.pagination-info {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #3b1313;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-paginate {
+    background-color: #3b1313;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-paginate:hover:not(:disabled) {
+    background-color: #cb4e18;
+}
+
+.btn-paginate:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Support Dark Mode untuk Pagination */
+body.dark-mode .pagination-info {
+    color: #f3e5ab;
+}
+
+body.dark-mode .btn-paginate {
+    background-color: #3b332e;
+    color: #e8d1a7;
+    border: 1px solid #55483f;
+}
+
+body.dark-mode .btn-paginate:hover:not(:disabled) {
+    background-color: #cb4e18;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-paginate:disabled {
+    background-color: #222;
+    border-color: #333;
+    color: #666;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body.admin-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper main {
+    flex: 1;
+}
+
+.admin-footer {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE - HALAMAN ADMIN (Dashboard & Live Pesanan) DI HP
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        margin-top: 100px;
+        padding: 0 12px;
+    }
+
+    .admin-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .admin-section {
+        padding: 16px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .form-row .form-group {
+        min-width: 100%;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 10px;
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper {
+        margin-top: 90px;
+    }
+
+    .stat-card .value {
+        font-size: 1.3rem;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 8px;
+        font-size: 0.78rem;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .login-card {
+        padding: 25px 18px;
+    }
+}
