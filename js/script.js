@@ -208,7 +208,7 @@ function submitOrderForm(event) {
         valid = false;
     }
 
-    // jumlah harus angka bulat positif
+    // jumlah harus angka bulat
     if (isNaN(jumlah) || jumlah <= 0 || !Number.isInteger(jumlah)) {
         showFieldError('order-jumlah', 'error-jumlah', 'Jumlah pesanan harus angka bulat lebih dari 0.');
         valid = false;
